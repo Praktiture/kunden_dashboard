@@ -115,8 +115,9 @@ else:
         for i in range(0, len(gefuellte_panels), panels_pro_zeile):
             gruppe = gefuellte_panels[i:i + panels_pro_zeile]
             cols = st.columns(len(gruppe))
-            with col:
-                zeige_panel(titel, vorhandene, stil)
+            for col, (titel, vorhanden, stil) in zip(cols, gruppe):
+                with col:
+                    zeige_panel(titel, vorhandene, stil)
 
 # ── Stromverbrauch ────────────────────────────
 if strom_file is not None and gas_file is not None:
