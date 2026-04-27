@@ -5,13 +5,14 @@ def zeige_verbrauch_plot(vdf, datum_spalte, verbrauch_spalte, titel, farbe):
     
     # intervall der Messdaten ermitteln
     try:
-        intervall = erkenne_intervall(vdf, datum_spalte)
+        intervall, faktor = erkenne_intervall(vdf, datum_spalte)
     except ValueError as e:
         st.warning(f"⚠️ {e}")
         intervall = "unbekannt"
+        
 
     if intervall in ["minütlich", "15-Minuten", "30-Minuten", "stündlich"]:     # ist Tagesverlauf möglich?
-        optionen = ["Gesamtverlauf", "Tagesverlauf", "Jahresverlauf (Tagesspitzen)"]
+        optionen = ["Gesamtverlauf", "Tagesverlauf", "Jahresverlauf (Tagesspitzen)", "Lastdauerlinie"]
     elif intervall == "täglich":
         optionen = ["Gesamtverlauf"]
     else:
@@ -39,15 +40,25 @@ def zeige_verbrauch_plot(vdf, datum_spalte, verbrauch_spalte, titel, farbe):
         )
         x_label = "Datum"
     
+    elif ansicht == "Lastdauerlinie":
+        sorted_values = (
+            vdf[verbrauch_spalte].dropna().sort_values(ascending=False).reset_index(drop=True)
+        )
+        plot_df = sorted_values.to_frame(name=verbrauch_spalte)
+        plot_df["Lastdauer"] = (plot_df.index +1)*faktor
+        x_label = f"Dauer[h] ({intervall}) (absteigend sortiert)"
+    
     else:               # Gesamtverlauf
         plot_df = vdf
         x_label = "Datum"
 
+    x_achse = datum_spalte if ansicht != "Lastdauerlinie" else "Lastdauer"
+
     fig = px.line(
         plot_df,
-        x = datum_spalte,
+        x = x_achse,
         y = verbrauch_spalte,
-        labels = {datum_spalte: x_label, verbrauch_spalte: "Verbrauch kWh"},
+        labels = {x_achse: x_label, verbrauch_spalte: "Verbrauch kWh"},
         template = "plotly_white"
     )
     fig.update_traces(line_color = farbe, line_width = 2)
@@ -56,23 +67,30 @@ def zeige_verbrauch_plot(vdf, datum_spalte, verbrauch_spalte, titel, farbe):
 
 def erkenne_intervall(df, datum_spalte):
     if len(df) < 2:
-        return "unbekannt"
+        faktor = "unbekannt"
+        return "unbekannt", faktor
     
     diff_minuten = df[datum_spalte].diff().dropna().median().total_seconds() / 60
 
     if 0 <= diff_minuten <= 2:
-        return "minütlich"
+        faktor = 1/60
+        return "minütlich", faktor
     elif 13 <= diff_minuten <= 17:
-        return "15-Minuten"
+        faktor = 0.25
+        return "15-Minuten", faktor
     elif 25 <= diff_minuten <= 35:
-        return "30-Minuten"
+        faktor = 0.5
+        return "30-Minuten", faktor
     elif 55 <= diff_minuten <= 65:
-        return "stündlich"
+        faktor = 1
+        return "stündlich", faktor
     elif 1380 <= diff_minuten <= 1500:
-        return "täglich"
+        faktor = 1
+        return "täglich", faktor
     else: 
         raise ValueError(
             f"Zeitintevall nicht erkannt."
             f"Medianer Abstand zwischen Messpunkten:{diff_minuten:.1f}  Minuten."
         )
+
     
