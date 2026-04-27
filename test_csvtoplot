@@ -1,0 +1,11 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+plt.plot([1,2,3], [4,5,6])
+plt.show()
+
+daten = "Test_Datenverlauf.CSV"
+
+df = pd.read_csv(daten, sep=";",encoding='latin1', header=None, names=["date", "value"])
+df.plot(x="date", y="value")
+plt.show()
