@@ -115,7 +115,7 @@ else:
         for i in range(0, len(gefuellte_panels), panels_pro_zeile):
             gruppe = gefuellte_panels[i:i + panels_pro_zeile]
             cols = st.columns(len(gruppe))
-            for col, (titel, vorhanden, stil) in zip(cols, gruppe):
+            for col, (titel, vorhandene, stil) in zip(cols, gruppe):
                 with col:
                     zeige_panel(titel, vorhandene, stil)
 
