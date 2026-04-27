@@ -133,7 +133,7 @@ if strom_file and strom_datum and strom_verbrauch and strom_file and strom_datum
             st.error(f"Fehler beim Laden der Stromdaten: {e}")
     
     with col2:
-         st.subheader("🔥 Gasverbrauch")
+        st.subheader("🔥 Gasverbrauch")
         try:
             vdf_gas = lade_verbrauch(gas_file, gas_datum, gas_verbrauch)
             zeige_verbrauch_plot(vdf_gas, gas_datum, gas_verbrauch, titel="gas", farbe="#3B82F6")
