@@ -46,7 +46,7 @@ with st.sidebar:
     # Stromspalten auswählen
     strom_datum = None
     strom_verbrauch = None
-    if strom_file:
+    if strom_file is not None:
         try:
             strom_file.seek(0)
             vdf_raw = pd.read_excel(strom_file)
@@ -66,7 +66,7 @@ with st.sidebar:
     # Gasspalten auswählen
     gas_datum = None
     gas_verbrauch = None
-    if gas_file:
+    if gas_file is not None:
         try:
             gas_file.seek(0)
             vdf_raw = pd.read_excel(gas_file)
@@ -109,10 +109,12 @@ else:
     ]
 
     gefuellte_panels = [p for p in alle_panels if p is not None]
+    panels_pro_zeile = 3
 
     if gefuellte_panels:
-        cols = st.columns(len(gefuellte_panels))
-        for col, (titel, vorhandene, stil) in zip(cols, gefuellte_panels):
+        for i in range(0, len(gefuellte_panels), panels_pro_zeile):
+            gruppe = gefuellte_panels[i:i + panels_pro_zeile]
+            cols = st.columns(len(gruppe))
             with col:
                 zeige_panel(titel, vorhandene, stil)
 
