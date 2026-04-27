@@ -14,10 +14,10 @@ setze_styles()
 # KONFIGURATION
 # ─────────────────────────────────────────────
 KATEGORIEN = {
-    "Allgemein": ["unternehmen", "muttergesellschaft", "rechtsform", "hauptsitz", "mitarbeiterzahl", "umsatz_eur", "branche"],
-    "Energie": ["stromverbrauch_gwh", "gasverbrauch_gwh", "waermeversorgung", "gruenstrom"],
-    "Nachhaltigkeit": ["klimaziele", "esg_bericht", "co2_bilanzierung", "zertifizierungen"],
-    "Strategie": ["ausgangssituation", "geplante_massnahmen", "projektrelevanz", "kurzfazit"],
+    "Allgemein": ["Unternehmen", "Muttergesellschaft", "Rechtsform", "Hauptsitz", "Mitarbeiterzahl", "Umsatz(€)", "Umsatz/Jahr", "Branche"],
+    "Energie": ["Stromverbrauch(GWh)", "Gasverbrauch(GWh)", "Wärmeversorgung", "Grünstrom", "Eigenerzeugung"],
+    "Nachhaltigkeit": ["Klimaziele", "ESG Bericht", "CO2 Bilanzierung", "Zertifizierungen"],
+    "Strategie": ["Ausgangssituation", "Geplante Maßnahmen", "Projektrelevanz", "Kurzfazit"],
 }
 
 # ─────────────────────────────────────────────

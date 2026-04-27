@@ -7,7 +7,6 @@ import os
 
 st.set_page_config(page_title="Kundendashboard", layout="wide")         # für streamlit layout
 
-from spalten_erkennung import spalten_auswahl, erkenne_spalten
 from data_load import datei_konfiguration, lade_daten, lade_verbrauch           # noch kein verbrauch weil erstmal nur csv
 from streamlit_config import setze_styles, baue_panel, zeige_panel
 from plot_functions import zeige_verbrauch_plot

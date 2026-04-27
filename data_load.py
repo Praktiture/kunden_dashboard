@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import os
-from spalten_erkennung import erkenne_spalten
+from spalten_finden import erkenne_spalten
 
 @st.dialog("Dateien konfigurieren")
 def datei_konfiguration():
