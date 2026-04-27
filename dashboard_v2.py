@@ -117,7 +117,7 @@ else:
                 zeige_panel(titel, vorhandene, stil)
 
 # ── Stromverbrauch ────────────────────────────
-if strom_file and strom_datum and strom_verbrauch and strom_file and strom_datum and strom_verbrauch:
+if strom_file is not None and gas_file is not None:
     col1, col2 = st.columns(2)
 
     with col1: 
