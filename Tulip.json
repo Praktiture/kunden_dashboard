@@ -1,47 +1,47 @@
 {
-  "unternehmen": "Tulip Cocoa FB GmbH & Co. KG",
-  "muttergesellschaft": "ECOM Agroindustrial Corp. Ltd., Pully (Schweiz)",
-  "rechtsform": "GmbH & Co. KG",
-  "hauptsitz": "Kakaostraße 1, 16833 Fehrbellin, Brandenburg, Deutschland",
-  "standorte": ["Fehrbellin, Brandenburg (Produktion, einziger Standort)"],
-  "mitarbeiterzahl": "ca. 121 (Stand Übernahme 2017; aktuell nicht öffentlich bekannt)",
-  "umsatz_eur": null,
-  "umsatz_jahr": null,
-  "branche": "Kakaoverarbeitung / Lebensmittelproduktion",
-  "zeithorizont": null,
-  "ausgangssituation": [
+  "Unternehmen": "Tulip Cocoa FB GmbH & Co. KG",
+  "Muttergesellschaft": "ECOM Agroindustrial Corp. Ltd., Pully (Schweiz)",
+  "Rechtsform": "GmbH & Co. KG",
+  "Hauptsitz": "Kakaostraße 1, 16833 Fehrbellin, Brandenburg, Deutschland",
+  "Standorte": ["Fehrbellin, Brandenburg (Produktion, einziger Standort)"],
+  "Mitarbeiterzahl": "ca. 121 (Stand Übernahme 2017; aktuell nicht öffentlich bekannt)",
+  "Umsatz(€)": null,
+  "Umsatz/Jahr": null,
+  "Branche": "Kakaoverarbeitung / Lebensmittelproduktion",
+  "Zeithorizont": null,
+  "Ausgangssituation": [
     "Einziger Produktionsstandort in Fehrbellin; verarbeitet Kakaobohnen zu Kakaobutter, Kakaomasse, Kakaopulver und Kakaokuchen",
     "24/7-Schichtbetrieb; energieintensive Kernprozesse: Reinigen, Rösten, Mahlen, Pressen",
     "Rohstoffbezug hauptsächlich aus Westafrika, zusätzlich Indonesien und Südamerika",
     "2017 Übernahme der insolventen Euromar Commodities durch ECOM-Tochter Theobroma; alle 121 Mitarbeiter übernommen",
     "Handelsregister: Amtsgericht Neuruppin, HRA 3053 NP"
   ],
-  "klimaziele": "ECOM-Konzernziel: Netto-Null über alle Scopes bis 2050; Nahziele bis 2030; standortspezifische Ziele für Fehrbellin nicht öffentlich",
-  "esg_bericht": "ECOM Group Sustainability Report (jährlich); ECOM Cocoa Sustainability Report 2024 verfügbar",
-  "co2_bilanzierung": "Scope 1/2/3 auf Konzernebene vorhanden (2023: gesamt ca. 20,2 Mrd. kg CO2e); standortspezifisch nicht öffentlich",
-  "zertifizierungen": ["Ecocert (Bio-Landwirtschaft Europa)"],
-  "stromverbrauch_gwh": null,
-  "gasverbrauch_gwh": null,
-  "eigenerzeugung": [],
-  "waermeversorgung": "Prozesswärme für Röstung und Pressung erforderlich; genaue Versorgungsstruktur öffentlich nicht bekannt",
-  "gruenstrom": null,
-  "geplante_massnahmen": [],
-  "projektrelevanz": [
+  "Klimaziele": "ECOM-Konzernziel: Netto-Null über alle Scopes bis 2050; Nahziele bis 2030; standortspezifische Ziele für Fehrbellin nicht öffentlich",
+  "ESG Bericht": "ECOM Group Sustainability Report (jährlich); ECOM Cocoa Sustainability Report 2024 verfügbar",
+  "CO2 Bilanzierung": "Scope 1/2/3 auf Konzernebene vorhanden (2023: gesamt ca. 20,2 Mrd. kg CO2e); standortspezifisch nicht öffentlich",
+  "Zertifizierungen": ["Ecocert (Bio-Landwirtschaft Europa)"],
+  "Stromverbrauch(GWh)": null,
+  "Gasverbrauch(GWh)": null,
+  "Eigenerzeugung": [],
+  "Wärmeversorgung": "Prozesswärme für Röstung und Pressung erforderlich; genaue Versorgungsstruktur öffentlich nicht bekannt",
+  "Grünstrom": null,
+  "Geplante Maßnahmen": [],
+  "Projektrelevanz": [
     "Energieintensive Prozesse (Rösten, Mahlen) als Hebel für Effizienz und Dekarbonisierung",
     "Konzernziel Net-Zero 2050 erzeugt Handlungsdruck auf Werksebene",
     "PV-Potenzial auf Industriedach und Freiflächen in Brandenburg",
     "Grünstrombezug / PPA mit regionalen Windparkbetreibern prüfen",
     "Fördermittel: BEI (Bundesförderung Energie- und Ressourceneffizienz), Brandenburger Landesförderprogramme"
   ],
-  "offene_fragen": [
+  "Offene Fragen": [
     "Aktueller Strom- und Gasverbrauch am Standort Fehrbellin (GWh/Jahr)?",
     "Besteht ein Energiemanagementsystem (ISO 50001)?",
     "Eigene Klimaziele auf Werksebene oder nur Konzernvorgaben?",
     "CSRD/CBAM-Betroffenheit konkret?",
     "PV-Anlage oder BHKW vorhanden oder geplant?"
   ],
-  "transformationsphase": "früh bis mittel",
-  "kurzfazit": [
+  "Transformationsphase": "früh bis mittel",
+  "Kurzfazit": [
     "Konzerngetriebene Nachhaltigkeitsstrategie (ECOM) vorhanden; standortspezifische Umsetzung in Fehrbellin öffentlich nicht dokumentiert",
     "Wichtigste Projektansätze: Prozesswärme-Dekarbonisierung, Grünstromversorgung (PPA), PV-Eigenversorgung, Energieauditing",
     "Dringlichkeit mittel – CSRD-Berichtspflichten und ECOM-Konzernziele erhöhen internen Druck"

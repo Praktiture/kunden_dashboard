@@ -14,7 +14,7 @@ setze_styles()
 # KONFIGURATION
 # ─────────────────────────────────────────────
 KATEGORIEN = {
-    "Allgemein": ["Unternehmen", "Muttergesellschaft", "Rechtsform", "Hauptsitz", "Mitarbeiterzahl", "Umsatz(€)", "Umsatz/Jahr", "Branche"],
+    "Allgemein": ["Unternehmen", "Muttergesellschaft", "Rechtsform", "Hauptsitz", "Standorte", "Mitarbeiterzahl", "Umsatz(€)", "Umsatz/Jahr", "Branche"],
     "Energie": ["Stromverbrauch(GWh)", "Gasverbrauch(GWh)", "Wärmeversorgung", "Grünstrom", "Eigenerzeugung"],
     "Nachhaltigkeit": ["Klimaziele", "ESG Bericht", "CO2 Bilanzierung", "Zertifizierungen"],
     "Strategie": ["Ausgangssituation", "Geplante Maßnahmen", "Projektrelevanz", "Kurzfazit"],
@@ -117,29 +117,57 @@ else:
                 zeige_panel(titel, vorhandene, stil)
 
 # ── Stromverbrauch ────────────────────────────
-if strom_file and strom_datum and strom_verbrauch:
-    st.markdown("---")
-    st.subheader("⚡ Stromverbrauch")
-    try:
-        vdf_strom = lade_verbrauch(strom_file, strom_datum, strom_verbrauch)
-        zeige_verbrauch_plot(vdf_strom, strom_datum, strom_verbrauch, titel="strom", farbe="#F59E0B")
-        k1, k2, k3 = st.columns(3)
-        k1.metric("Gesamtverbrauch", f"{vdf_strom[strom_verbrauch].sum():,.0f} kWh")
-        k2.metric("Ø pro Zeitpunkt",  f"{vdf_strom[strom_verbrauch].mean():,.1f} kWh")
-        k3.metric("Spitzenwert",       f"{vdf_strom[strom_verbrauch].max():,.0f} kWh")
-    except Exception as e:
-        st.error(f"Fehler beim Laden der Stromdaten: {e}")
+if strom_file and strom_datum and strom_verbrauch and strom_file and strom_datum and strom_verbrauch:
+    col1, col2 = st.columns(2)
 
-# ── Gasverbrauch ──────────────────────────────
-if gas_file and gas_datum and gas_verbrauch:
-    st.markdown("---")
-    st.subheader("🔥 Gasverbrauch")
-    try:
-        vdf_gas = lade_verbrauch(gas_file, gas_datum, gas_verbrauch)
-        zeige_verbrauch_plot(vdf_gas, gas_datum, gas_verbrauch, titel="gas", farbe="#3B82F6")
-        k1, k2, k3 = st.columns(3)
-        k1.metric("Gesamtverbrauch", f"{vdf_gas[gas_verbrauch].sum():,.0f} kWh")
-        k2.metric("Ø pro Zeitpunkt",  f"{vdf_gas[gas_verbrauch].mean():,.1f} kWh")
-        k3.metric("Spitzenwert",       f"{vdf_gas[gas_verbrauch].max():,.0f} kWh")
-    except Exception as e:
-        st.error(f"Fehler beim Laden der Gasdaten: {e}")
+    with col1: 
+        st.subheader("⚡ Stromverbrauch")
+        try:
+            vdf_strom = lade_verbrauch(strom_file, strom_datum, strom_verbrauch)
+            zeige_verbrauch_plot(vdf_strom, strom_datum, strom_verbrauch, titel="strom", farbe="#F59E0B")
+            k1, k2, k3 = st.columns(3)
+            k1.metric("Gesamtverbrauch", f"{vdf_strom[strom_verbrauch].sum():,.0f} kWh")
+            k2.metric("Ø pro Zeitpunkt",  f"{vdf_strom[strom_verbrauch].mean():,.1f} kWh")
+            k3.metric("Spitzenwert",       f"{vdf_strom[strom_verbrauch].max():,.0f} kWh")
+        except Exception as e:
+            st.error(f"Fehler beim Laden der Stromdaten: {e}")
+    
+    with col2:
+         st.subheader("🔥 Gasverbrauch")
+        try:
+            vdf_gas = lade_verbrauch(gas_file, gas_datum, gas_verbrauch)
+            zeige_verbrauch_plot(vdf_gas, gas_datum, gas_verbrauch, titel="gas", farbe="#3B82F6")
+            k1, k2, k3 = st.columns(3)
+            k1.metric("Gesamtverbrauch", f"{vdf_gas[gas_verbrauch].sum():,.0f} kWh")
+            k2.metric("Ø pro Zeitpunkt",  f"{vdf_gas[gas_verbrauch].mean():,.1f} kWh")
+            k3.metric("Spitzenwert",       f"{vdf_gas[gas_verbrauch].max():,.0f} kWh")
+        except Exception as e:
+            st.error(f"Fehler beim Laden der Gasdaten: {e}")
+    
+else:
+    if strom_file and strom_datum and strom_verbrauch:
+        st.markdown("---")
+        st.subheader("⚡ Stromverbrauch")
+        try:
+            vdf_strom = lade_verbrauch(strom_file, strom_datum, strom_verbrauch)
+            zeige_verbrauch_plot(vdf_strom, strom_datum, strom_verbrauch, titel="strom", farbe="#F59E0B")
+            k1, k2, k3 = st.columns(3)
+            k1.metric("Gesamtverbrauch", f"{vdf_strom[strom_verbrauch].sum():,.0f} kWh")
+            k2.metric("Ø pro Zeitpunkt",  f"{vdf_strom[strom_verbrauch].mean():,.1f} kWh")
+            k3.metric("Spitzenwert",       f"{vdf_strom[strom_verbrauch].max():,.0f} kWh")
+        except Exception as e:
+            st.error(f"Fehler beim Laden der Stromdaten: {e}")
+
+    # ── Gasverbrauch ──────────────────────────────
+    if strom_file and strom_datum and strom_verbrauch:
+        st.markdown("---")
+        st.subheader("🔥 Gasverbrauch")
+        try:
+            vdf_gas = lade_verbrauch(gas_file, gas_datum, gas_verbrauch)
+            zeige_verbrauch_plot(vdf_gas, gas_datum, gas_verbrauch, titel="gas", farbe="#3B82F6")
+            k1, k2, k3 = st.columns(3)
+            k1.metric("Gesamtverbrauch", f"{vdf_gas[gas_verbrauch].sum():,.0f} kWh")
+            k2.metric("Ø pro Zeitpunkt",  f"{vdf_gas[gas_verbrauch].mean():,.1f} kWh")
+            k3.metric("Spitzenwert",       f"{vdf_gas[gas_verbrauch].max():,.0f} kWh")
+        except Exception as e:
+            st.error(f"Fehler beim Laden der Gasdaten: {e}")
