@@ -5,6 +5,7 @@ from data_load import lade_verbrauch, parse_datum
 from plot_functions import zeige_verbrauch_plot
 from streamlit_config import setze_styles, baue_panel2, zeige_panel
 from spalten_finden import erkenne_spalten
+from VerbrauchFile import VerbrauchFile
 
 st.set_page_config(page_title="Kundendashboard", layout="wide")
 
@@ -32,56 +33,31 @@ with st.sidebar:
 
     if json_file is not None:
         st.session_state["json_file"] = json_file
-
-    if strom_file is not None:
-        st.session_state["strom_file"] = strom_file
-
-    if gas_file is not None:
-        st.session_state["gas_file"] = gas_file
-
     json_file = st.session_state.get("json_file")
-    strom_file = st.session_state.get("strom_file")
-    gas_file = st.session_state.get("gas_file")
 
-    # Stromspalten auswählen
-    strom_datum = None
-    strom_verbrauch = None
     if strom_file is not None:
-        try:
-            strom_file.seek(0)
-            vdf_raw = pd.read_excel(strom_file)
-            vdf_raw.columns = vdf_raw.columns.str.strip()
-            datum_erkannt, verbrauch_erkannt = erkenne_spalten(vdf_raw, typ="strom")
-            alle_spalten = vdf_raw.columns.tolist()
-            st.markdown("**Stromspalten prüfen:**")
-            strom_datum = st.selectbox("Datumsspalte Strom", alle_spalten,
-                index=alle_spalten.index(datum_erkannt[0]) if datum_erkannt else 0,
-                key="datum_strom")
-            strom_verbrauch = st.selectbox("Verbrauchsspalte Strom", alle_spalten,
-                index=alle_spalten.index(verbrauch_erkannt[0]) if verbrauch_erkannt else 0,
-                key="verbrauch_strom")
-        except Exception as e:
-            st.error(f"Fehler bei Stromdaten: {e}")
+        st.session_state["Strom_file"] = strom_file
 
-    # Gasspalten auswählen
-    gas_datum = None
-    gas_verbrauch = None
     if gas_file is not None:
-        try:
-            gas_file.seek(0)
-            vdf_raw = pd.read_excel(gas_file)
-            vdf_raw.columns = vdf_raw.columns.str.strip()
-            datum_erkannt, verbrauch_erkannt = erkenne_spalten(vdf_raw, typ="gas")
-            alle_spalten = vdf_raw.columns.tolist()
-            st.markdown("**Gasspalten prüfen:**")
-            gas_datum = st.selectbox("Datumsspalte Gas", alle_spalten,
-                index=alle_spalten.index(datum_erkannt[0]) if datum_erkannt else 0,
-                key="datum_gas")
-            gas_verbrauch = st.selectbox("Verbrauchsspalte Gas", alle_spalten,
-                index=alle_spalten.index(verbrauch_erkannt[0]) if verbrauch_erkannt else 0,
-                key="verbrauch_gas")
-        except Exception as e:
-            st.error(f"Fehler bei Gasdaten: {e}")
+        st.session_state["Gas_file"] = gas_file
+
+    stromObject = VerbrauchFile("Strom")
+    gasObject = VerbrauchFile("Gas")
+    stromObject.set_file()
+    gasObject.set_file()
+
+    if stromObject.file is not None:
+        stromObject.checkAndCleanData()
+
+    if gasObject.file is not None:
+        gasObject.checkAndCleanData()
+
+    verbrauch_objects = []
+    if stromObject.file is not None:
+        verbrauch_objects.append(stromObject)
+    if gasObject.file is not None:
+        verbrauch_objects.append(gasObject)
+
 
 # ─────────────────────────────────────────────
 # DASHBOARD
@@ -120,57 +96,8 @@ else:
                     zeige_panel(titel, vorhandene, stil)
 
 # ── Stromverbrauch ────────────────────────────
-if strom_file is not None and gas_file is not None:
-    col1, col2 = st.columns(2)
 
-    with col1: 
-        st.subheader("⚡ Stromverbrauch")
-        try:
-            vdf_strom = lade_verbrauch(strom_file, strom_datum, strom_verbrauch)
-            zeige_verbrauch_plot(vdf_strom, strom_datum, strom_verbrauch, titel="strom", farbe="#F59E0B")
-            k1, k2, k3 = st.columns(3)
-            k1.metric("Gesamtverbrauch", f"{vdf_strom[strom_verbrauch].sum():,.0f} kWh")
-            k2.metric("Ø pro Zeitpunkt",  f"{vdf_strom[strom_verbrauch].mean():,.1f} kWh")
-            k3.metric("Spitzenwert",       f"{vdf_strom[strom_verbrauch].max():,.0f} kWh")
-        except Exception as e:
-            st.error(f"Fehler beim Laden der Stromdaten: {e}")
-    
-    with col2:
-        st.subheader("🔥 Gasverbrauch")
-        try:
-            vdf_gas = lade_verbrauch(gas_file, gas_datum, gas_verbrauch)
-            zeige_verbrauch_plot(vdf_gas, gas_datum, gas_verbrauch, titel="gas", farbe="#3B82F6")
-            k1, k2, k3 = st.columns(3)
-            k1.metric("Gesamtverbrauch", f"{vdf_gas[gas_verbrauch].sum():,.0f} kWh")
-            k2.metric("Ø pro Zeitpunkt",  f"{vdf_gas[gas_verbrauch].mean():,.1f} kWh")
-            k3.metric("Spitzenwert",       f"{vdf_gas[gas_verbrauch].max():,.0f} kWh")
-        except Exception as e:
-            st.error(f"Fehler beim Laden der Gasdaten: {e}")
-    
-else:
-    if strom_file and strom_datum and strom_verbrauch:
-        st.markdown("---")
-        st.subheader("⚡ Stromverbrauch")
-        try:
-            vdf_strom = lade_verbrauch(strom_file, strom_datum, strom_verbrauch)
-            zeige_verbrauch_plot(vdf_strom, strom_datum, strom_verbrauch, titel="strom", farbe="#F59E0B")
-            k1, k2, k3 = st.columns(3)
-            k1.metric("Gesamtverbrauch", f"{vdf_strom[strom_verbrauch].sum():,.0f} kWh")
-            k2.metric("Ø pro Zeitpunkt",  f"{vdf_strom[strom_verbrauch].mean():,.1f} kWh")
-            k3.metric("Spitzenwert",       f"{vdf_strom[strom_verbrauch].max():,.0f} kWh")
-        except Exception as e:
-            st.error(f"Fehler beim Laden der Stromdaten: {e}")
-
-    # ── Gasverbrauch ──────────────────────────────
-    if strom_file and strom_datum and strom_verbrauch:
-        st.markdown("---")
-        st.subheader("🔥 Gasverbrauch")
-        try:
-            vdf_gas = lade_verbrauch(gas_file, gas_datum, gas_verbrauch)
-            zeige_verbrauch_plot(vdf_gas, gas_datum, gas_verbrauch, titel="gas", farbe="#3B82F6")
-            k1, k2, k3 = st.columns(3)
-            k1.metric("Gesamtverbrauch", f"{vdf_gas[gas_verbrauch].sum():,.0f} kWh")
-            k2.metric("Ø pro Zeitpunkt",  f"{vdf_gas[gas_verbrauch].mean():,.1f} kWh")
-            k3.metric("Spitzenwert",       f"{vdf_gas[gas_verbrauch].max():,.0f} kWh")
-        except Exception as e:
-            st.error(f"Fehler beim Laden der Gasdaten: {e}")
+if verbrauch_objects:
+    cols = st.columns(len(verbrauch_objects))
+    for col, obj in zip(cols, verbrauch_objects):
+        obj.make_col(col)

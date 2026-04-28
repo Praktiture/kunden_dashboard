@@ -4,9 +4,9 @@ def erkenne_spalten(df, typ):
     
     datum_kandidaten = ["stunde", "datum", "date", "zeit", "zeitpunkt", "minute"]
 
-    if typ == "strom":
+    if typ == "Strom":
         verbrauch_kandidaten = ["kwh", "strom", "verbrauch", "werte", "e endgültig", "e vorläufig"]
-    elif typ == "gas":
+    elif typ == "Gas":
         verbrauch_kandidaten = ["verbrauch", "kwh", "gas", "werte", "g endgültig", "g vorläufig"]
 
     datum_spalten = []
