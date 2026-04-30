@@ -18,7 +18,8 @@ def zeige_verbrauch_plot(vdf, datum_spalte, verbrauch_spalte, titel, farbe):
     else:
         optionen = ["Gesamtverlauf"]
 
-    ansicht = st.radio("Ansicht", optionen, horizontal = True, key = f"ansicht_{titel}")
+    with st.expander("Ansicht"):
+        ansicht = st.radio("Auswahl:", optionen, horizontal = True, key = f"ansicht_{titel}")
 
     if ansicht == "Tagesverlauf":
         verfuegbare_tage = vdf[datum_spalte].dt.date.unique()
