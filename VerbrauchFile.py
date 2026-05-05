@@ -5,28 +5,22 @@ from data_load import lade_verbrauch
 from plot_functions import zeige_verbrauch_plot
 
 class VerbrauchFile:
-    instances = []
-
-    def __init__(self, vTyp):
-        type(self).instances.append(self)
+    file = None
+    datum = None
+    verbrauch = None
+    vdf = None
+    
+    def __init__(self, vTyp):   
         self.vTyp = vTyp
         self.subHeader = "Verbrauch"
         self.farbe = "#000000"
-        self.file = None
-        self.datum = None
-        self.verbrauch = None
-        self.vdf = None
-
         if vTyp == "Strom":
             self.subHeader = "⚡ Stromverbrauch"
-            self.farbe = "#F59E0B"
+            self.farbe ="#F59E0B"
         elif vTyp == "Gas":
             self.subHeader = "🔥 Gasverbrauch"
-            self.farbe = "#3B82F6"
-
-    @classmethod
-    def clear_instances(cls):
-        cls.instances.clear()
+            self.farbe ="#3B82F6"
+            
     # optional make_name_avaiable für 
     def set_file(self): 
         self.file = st.session_state.get(f"{self.vTyp}_file")       
@@ -55,8 +49,8 @@ class VerbrauchFile:
                 self.vdf = lade_verbrauch(self.file, self.datum, self.verbrauch)
                 zeige_verbrauch_plot(self.vdf, self.datum, self.verbrauch, titel=self.vTyp, farbe=self.farbe)
                 k1, k2, k3 = st.columns(3)
-                k1.metric("Gesamtverbrauch", f"{self.vdf[self.verbrauch].sum():,.0f} kWh")
-                k2.metric("Ø pro Zeitpunkt",  f"{self.vdf[self.verbrauch].mean():,.1f} kWh")
-                k3.metric("Spitzenwert",       f"{self.vdf[self.verbrauch].max():,.0f} kWh")
+                k1.badge(f"Gesamtverbrauch: {self.vdf[self.verbrauch].sum():,.0f} kWh", color = "blue")
+                k2.badge(f"Ø pro Zeitpunkt: {self.vdf[self.verbrauch].mean():,.1f} kWh", color = "green")
+                k3.badge(f"Spitzenwert: {self.vdf[self.verbrauch].max():,.0f} kWh", color = "red")
             except Exception as e:
                 st.error(f"Fehler beim Laden der {self.vTyp}daten: {e}")

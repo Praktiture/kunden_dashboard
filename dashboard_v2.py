@@ -1,10 +1,7 @@
 import streamlit as st
 import pandas as pd
 import json
-from data_load import lade_verbrauch, parse_datum
-from plot_functions import zeige_verbrauch_plot
 from streamlit_config import setze_styles, baue_panel2, zeige_panel
-from spalten_finden import erkenne_spalten
 from VerbrauchFile import VerbrauchFile
 
 st.set_page_config(page_title="Kundendashboard", layout="wide")
@@ -15,10 +12,31 @@ setze_styles()
 # KONFIGURATION
 # ─────────────────────────────────────────────
 KATEGORIEN = {
-    "Allgemein": ["Unternehmen", "Muttergesellschaft", "Rechtsform", "Hauptsitz", "Standorte", "Mitarbeiterzahl", "Umsatz(€)", "Umsatz/Jahr", "Branche"],
-    "Energie": ["Stromverbrauch(GWh)", "Gasverbrauch(GWh)", "Wärmeversorgung", "Grünstrom", "Eigenerzeugung"],
-    "Nachhaltigkeit": ["Klimaziele", "ESG Bericht", "CO2 Bilanzierung", "Zertifizierungen"],
-    "Strategie": ["Ausgangssituation", "Geplante Maßnahmen", "Projektrelevanz", "Kurzfazit"],
+    "Allgemein": [
+        "Unternehmen", "Muttergesellschaft", "Rechtsform", "Hauptsitz",
+        "Standorte", "Mitarbeiterzahl", "Umsatz(€)", "Umsatz/Jahr",
+        "Branche", "Linkedin(url)", "Zeithorizont"
+    ],
+    "Energie": [
+        "Stromverbrauch(GWh)", "Stromverbrauch (Annahme)",
+        "Gasverbrauch(GWh)", "Gasverbrauch (Annahme)",
+        "Wärmeversorgung", "Grünstrom", "Eigenerzeugung"
+    ],
+    "Nachhaltigkeit": [
+        "Klimaziele", "Klimaziele (Annahme)",
+        "ESG Bericht",
+        "CO2 Bilanzierung", "CO2 Bilanzierung (Annahme)",
+        "Zertifizierungen"
+    ],
+    "Strategie": [
+        "Ausgangssituation",
+        "Geplante Maßnahmen", "Geplante Maßnahmen (Annahme)",
+        "Projektrelevanz", "Transformationsphase"
+    ],
+    "Offene Fragen": [
+        "Offene Fragen"],
+    "Fazit": [
+        "Kurzfazit"],
 }
 
 # ─────────────────────────────────────────────
@@ -62,6 +80,7 @@ with st.sidebar:
 # ─────────────────────────────────────────────
 # DASHBOARD
 # ─────────────────────────────────────────────
+st.image("Logo.png", width = 300, output_format = "png")
 st.title("Kunden-Dashboard")
 st.markdown("---")
 
@@ -82,6 +101,8 @@ else:
         baue_panel2(kunde, "Energie",        KATEGORIEN["Energie"],        stil="steckbrief"),
         baue_panel2(kunde, "Nachhaltigkeit", KATEGORIEN["Nachhaltigkeit"], stil="steckbrief"),
         baue_panel2(kunde, "Strategie",      KATEGORIEN["Strategie"],      stil="steckbrief"),
+        baue_panel2(kunde, "Offene Fragen",  KATEGORIEN["Offene Fragen"],  stil="steckbrief"),
+        baue_panel2(kunde, "Fazit",          KATEGORIEN["Fazit"],          stil="steckbrief"),  
     ]
 
     gefuellte_panels = [p for p in alle_panels if p is not None]

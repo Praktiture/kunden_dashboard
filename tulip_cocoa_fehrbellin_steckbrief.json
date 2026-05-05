@@ -1,0 +1,84 @@
+{
+  "Unternehmen": "Tulip Cocoa FB GmbH & Co. KG",
+  "Muttergesellschaft": "Theobroma B.V. (Amsterdam) → ECOM Agroindustrial Corp. (Pully, Schweiz)",
+  "Rechtsform": "GmbH & Co. KG",
+  "Handelsregister": "Amtsgericht Neuruppin, HRA 3053 NP",
+  "Hauptsitz": "Kakaostraße 1, 16833 Fehrbellin, Brandenburg, Deutschland",
+  "Standorte": [
+    "Kakaostraße 1, 16833 Fehrbellin (einziger Produktionsstandort)"
+  ],
+  "Mitarbeiterzahl": "[FAKT] Ca. 120–125 Mitarbeiter (zum Zeitpunkt der ECOM-Übernahme 2017; aktuelle Zahl nicht öffentlich bekannt)",
+  "Umsatz(€)": null,
+  "Umsatz/Jahr": "[FAKT mit Vorbehalt] Bilanzsumme 37,9 Mio. EUR (2023, Implisense/Jahresabschluss); Vorgänger Euromar erzielte zuletzt ~980 Mio. EUR Umsatz (überwiegend Handel); Umsatz Tulip Cocoa FB GmbH & Co. KG nicht öffentlich",
+  "Branche": "Lebensmittelproduktion / Kakaoverarbeitung (Kakaobutter, Kakaomasse, Kakaopulver, Kakaokuchen)",
+  "Linkedin(url)": null,
+  "Zeithorizont": null,
+  "Ausgangssituation": [
+    "[FAKT] Werk in Fehrbellin ist die frühere Euromar Commodities GmbH, die im Dez. 2016 Insolvenz anmeldete (Schulden ca. 1,3 Mrd. EUR); Übernahme durch ECOM/Theobroma im Mai 2017 nach Genehmigung durch Bundeskartellamt",
+    "[FAKT] ECOM übernahm alle ca. 120–125 Mitarbeiter und nahm die Produktion nahtlos weiter auf",
+    "[FAKT] Kernkompetenz: Reinigen, Rösten und Mahlen von Kakaobohnen; Produktion von Kakaomasse, Kakaobutter, Kakaopulver und Kakaokuchen für Schokoladen-, Süßwaren-, Eiscreme- und Backwarenbranche",
+    "[FAKT] Betrieb läuft ganzjährig im Schichtsystem",
+    "[FAKT] Kakaobohnen-Import schwerpunktmäßig aus Westafrika, zusätzlich Indonesien und Südamerika",
+    "[FAKT] Werk ist nach EU-Öko-Verordnung (EU) 2018/848 durch Ecocert als Hersteller/Verarbeiter zertifiziert",
+    "[FAKT] Bilanzsumme 2023: 37,9 Mio. EUR (Rückgang -4,1% ggü. Vorjahr; Quelle: Implisense)"
+  ],
+  "Klimaziele": null,
+  "Klimaziele (Annahme)": "[ANNAHME] Eigenständige Klimaziele auf Werksebene nicht öffentlich; auf Konzernebene ECOM: 100% Monitoring in Lieferketten bis Ende 2023, 100% Klimaschulungen für Hochrisiko-Bauern bis Ende 2025 (Smarter Cocoa Charter)",
+  "ESG Bericht": "[FAKT] Kein eigenständiger ESG-/Nachhaltigkeitsbericht für Tulip Cocoa FB GmbH & Co. KG öffentlich auffindbar; ECOM veröffentlicht jährlichen Cocoa Sustainability Report (zuletzt 2023)",
+  "CO2 Bilanzierung": null,
+  "CO2 Bilanzierung (Annahme)": "[ANNAHME] CO₂-Bilanzierung wahrscheinlich auf ECOM-Konzernebene; keine werksindividuellen Scope-1/2/3-Daten öffentlich bekannt",
+  "Zertifizierungen": [
+    "[FAKT] EU-Öko-Verordnung (EU) 2018/848 – Ecocert-Zertifizierung als Hersteller/Verarbeiter (aktiv)"
+  ],
+  "Stromverbrauch(GWh)": null,
+  "Stromverbrauch (Annahme)": "[ANNAHME] Kakaoverarbeitung mit schätzungsweise 30.000–50.000 t/Jahr Mahlkapazität (aus Euromar-Vorläufer hochgerechnet): typischer Stromverbrauch ca. 15–25 GWh/Jahr (400–600 kWh/t Mahlleistung, branchentypisch); Schichtsystem = Vollbetrieb 8.760 h/Jahr",
+  "Gasverbrauch(GWh)": null,
+  "Gasverbrauch (Annahme)": "[ANNAHME] Prozesswärme für Rösten (160–200°C), Sterilisierung und Pressung erfordert erhebliche thermische Energie; Schätzung 20–40 GWh/Jahr Erdgas oder Dampf (branchentypisch für diese Größenordnung); Energieträger nicht öffentlich bekannt",
+  "Eigenerzeugung": [],
+  "Wärmeversorgung": "[ANNAHME] Dampf- oder Heißwasserversorgung über eigene Gaskessel wahrscheinlich; Abwärmepotenzial aus Röst- und Pressprozessen nicht belegt",
+  "Grünstrom": null,
+  "Geplante Maßnahmen": [],
+  "Geplante Maßnahmen (Annahme)": [
+    "[ANNAHME] PV-Anlage auf Fabrikdach plausibel und durch ECOM-Nachhaltigkeitsstrategie motiviert (vgl. Nigeria-Standort mit 2,35 MW PV)",
+    "[ANNAHME] EnEfG-Pflicht relevant: Als Industriebetrieb mit geschätztem Verbrauch >7,5 GWh/Jahr ist ISO 50001 oder EMAS bis Juli 2025 gesetzlich vorgeschrieben (§8 EnEfG); Umsetzungsstand nicht bekannt",
+    "[ANNAHME] Abwärmenutzung aus Röst-/Pressprozessen als Effizienzmaßnahme branchentypisch",
+    "[ANNAHME] Grünstrombezug oder PPA im Rahmen der ECOM-Konzernstrategie möglich"
+  ],
+  "Projektrelevanz": [
+    "Energieintensive Kakaoverarbeitung (Rösten, Pressen, Mahlen) mit hohem Strom- und Wärmebedarf – Optimierungspotenzial vorhanden",
+    "EnEfG-Pflicht: ISO 50001 oder EMAS ab Juli 2025 gesetzlich erforderlich (>7,5 GWh/Jahr Verbrauch sehr wahrscheinlich) – konkreter Handlungsdruck",
+    "Einziger Produktionsstandort in Deutschland = klarer Ansprechpartner vor Ort",
+    "Fördermittel: BEW (Bundesförderung effiziente Wärmenetze), BAFA-Energieberatung, ggf. KfW-Programme für Industrieeffizienz relevant",
+    "EUDR (EU Deforestation Regulation) treibt Nachhaltigkeitsdruck auch auf Verarbeitungsebene"
+  ],
+  "Offene Fragen": [
+    "Ist ISO 50001 / EMAS bereits eingeführt oder in Planung? (EnEfG-Pflicht!)",
+    "Aktuelle Energieträger und -verbräuche (Strom, Gas, Dampf)?",
+    "Wer ist Energieverantwortlicher / Facility Manager am Standort Fehrbellin?",
+    "Gibt es laufende Investitionen (PV, Effizienz, Wärme) am Werk?",
+    "Wie wird Abwärme aus Röst-/Pressprozessen aktuell behandelt?",
+    "Bezieht das Werk bereits Grünstrom oder Herkunftsnachweise (HKN)?",
+    "Welche Nachhaltigkeitsziele werden auf Werksebene (nicht nur Konzern) verfolgt?"
+  ],
+  "Transformationsphase": "[ANNAHME] Früh – aktive Konzernstrategie bei ECOM vorhanden, aber Transparenz auf Werksebene Fehrbellin sehr gering; EnEfG erzeugt konkreten Handlungsdruck",
+  "Kurzfazit": [
+    "Tulip Cocoa FB GmbH & Co. KG ist ein energieintensiver Kakaoverarbeitungsbetrieb in Fehrbellin (Brandenburg), Tochter von ECOM Agroindustrial Corp.",
+    "Werk entstand 2017 aus der Insolvenz von Euromar Commodities; alle ~120 Mitarbeiter wurden übernommen",
+    "Bilanzsumme 2023: 37,9 Mio. EUR; Umsatz nicht öffentlich",
+    "Ecocert-Zertifizierung nach EU-Öko-VO vorhanden; ISO 50001 / EMAS-Status unklar, aber durch EnEfG ab Juli 2025 wahrscheinlich verpflichtend",
+    "Prioritäre Einstiegspunkte: EnEfG-Compliance (ISO 50001), Energieaudit, PV-Potenzial Dach, Prozesswärme-Optimierung"
+  ],
+  "Quellen": [
+    {"Quelle": "wer-zu-wem.de – Tulip Cocoa Firmenprofil", "url": "https://www.wer-zu-wem.de/firma/tulip-cocoa.html", "datum": "Mai 2026"},
+    {"Quelle": "Creditreform – Handelsregisterauskunft HRA 3053 NP", "url": "https://firmeneintrag.creditreform.de/16833/2012708220/TULIP_COCOA_FB_GMBH_CO_KG", "datum": "Mai 2026"},
+    {"Quelle": "Northdata – Jahresabschlüsse & Beteiligungen", "url": "https://www.northdata.de/Tulip%20Cocoa%20FB%20GmbH%20&%20Co%C2%B7%20KG,%20Fehrbellin/Amtsgericht%20Neuruppin%20HRA%203053", "datum": "Mai 2026"},
+    {"Quelle": "Implisense – Bilanzsumme 2023", "url": "https://implisense.com/de/companies/tulip-cocoa-fb-gmbh-co-kg-fehrbellin-DEFM61RXDK89", "datum": "Mai 2026"},
+    {"Quelle": "Leonhardt Rattunde / rws-verlag – ECOM-Übernahme Euromar", "url": "https://www.rws-verlag.de/aktuell/newsticker-kanzleien/leonhardt-rattunde-bundeskartellamt-genehmigt-uebernahme-der-insolventen-euromar-53103/", "datum": "Mai 2017"},
+    {"Quelle": "sweets-processing.de – Ecom übernimmt Euromar", "url": "https://www.sweets-processing.com/de/news/20170406-ecom-uebernimmt-kakaoverarbeiter-euromar", "datum": "April 2017"},
+    {"Quelle": "der-farang.com – 120 Mitarbeiter gerettet", "url": "https://der-farang.com/de/pages/schweizer-ecom-gruppe-rettet-deutsche-kakaofabrik", "datum": "2017"},
+    {"Quelle": "Ecocert – Zertifizierung (EU) 2018/848", "url": "https://certificat.ecocert.com/company/F0B49CAC-149D-4628-82F2-FBD55D81B498", "datum": "Mai 2026"},
+    {"Quelle": "D&B – Firmenprofil", "url": "https://www.dnb.com/business-directory/company-profiles.tulip_cocoa_fb_gmbh__co_kg.d3c3838aa47927bbe99e30a7d3119b27.html", "datum": "Mai 2026"},
+    {"Quelle": "theobroma-cacao.de – Unternehmensgeschichte", "url": "https://www.theobroma-cacao.de/partners/euromar-commodities-gmbh-ecg-kakao-produkte-15382", "datum": "Mai 2026"},
+    {"Quelle": "DEKRA – EnEfG / ISO 50001 Pflicht ab Juli 2025", "url": "https://www.dekra-certification.de/de/iso-50001-zertifizierung/", "datum": "Mai 2026"}
+  ]
+}

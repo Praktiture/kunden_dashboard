@@ -11,10 +11,10 @@ def zeige_verbrauch_plot(vdf, datum_spalte, verbrauch_spalte, titel, farbe):
         intervall = "unbekannt"
         
 
-    if intervall in ["minütlich", "15-Minuten", "30-Minuten", "stündlich"]:     # ist Tagesverlauf möglich?
-        optionen = ["Gesamtverlauf", "Tagesverlauf", "Jahresverlauf (Tagesspitzen)", "Lastdauerlinie"]
+    if intervall in ["minütlich", "15-Minuten", "30-Minuten", "stündlich"]:
+        optionen = ["Gesamtverlauf", "Tagesverlauf", "Tagesverbrauch", "Jahresverlauf (Tagesspitzen)", "Lastdauerlinie"]
     elif intervall == "täglich":
-        optionen = ["Gesamtverlauf"]
+        optionen = ["Gesamtverlauf", "Tagesverbrauch"]
     else:
         optionen = ["Gesamtverlauf"]
 
@@ -47,7 +47,16 @@ def zeige_verbrauch_plot(vdf, datum_spalte, verbrauch_spalte, titel, farbe):
         )
         plot_df = sorted_values.to_frame(name=verbrauch_spalte)
         plot_df["Lastdauer"] = (plot_df.index +1)*faktor
-        x_label = f"Dauer[h] ({intervall}) (absteigend sortiert)"
+        x_label = f"Dauer[h] pro Jahr"
+
+    elif ansicht == "Tagesverbrauch":
+        plot_df = (
+            vdf.set_index(datum_spalte)
+            .resample("D")[verbrauch_spalte]
+            .sum()
+            .reset_index()
+        )
+        x_label = "Datum"
     
     else:               # Gesamtverlauf
         plot_df = vdf

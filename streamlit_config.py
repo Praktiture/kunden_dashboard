@@ -46,16 +46,30 @@ def baue_panel2(kunde, titel, felder, stil="steckbrief"):
 
 def zeige_panel(titel, vorhandene, stil):
     zeilen = "".join(
-        f"<div style='display:flex; margin-bottom:6px;'>"
-        f"<span style='flex:1; font-weight:600;'>{feld}</span>"
-        f"<span style='flex:2;'>{wert}</span>"
+        f"<div style='"
+        f"display: grid;"
+        f"grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);"
+        f"gap: 4px 12px;"
+        f"margin-bottom: 6px;"
+        f"align-items: start;"
+        f"'>"
+        f"<span style='"
+        f"font-size: 13px;"
+        f"font-weight: 600;"
+        f"color: #555;"
+        f"word-break: break-word;"
+        f"'>{feld}</span>"
+        f"<span style='"
+        f"font-size: 13px;"
+        f"word-break: break-word;"
+        f"'>{wert}</span>"
         f"</div>"
         for feld, wert in vorhandene.items()
     )
     st.markdown(f"""
         <div class="panel">
             <div style="font-weight:700; font-size:16px;">{titel}</div>
-            <hr style="margin:8px 0;">
+            <hr style="margin:8px 0; border:none; border-top: 1px solid #eee;">
             {zeilen}
         </div>
     """, unsafe_allow_html=True)
