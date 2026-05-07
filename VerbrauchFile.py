@@ -50,7 +50,7 @@ class VerbrauchFile:
                 zeige_verbrauch_plot(self.vdf, self.datum, self.verbrauch, titel=self.vTyp, farbe=self.farbe)
                 k1, k2, k3 = st.columns(3)
                 k1.badge(f"Gesamtverbrauch: {self.vdf[self.verbrauch].sum():,.0f} kWh", color = "blue")
-                k2.badge(f"Ø pro Zeitpunkt: {self.vdf[self.verbrauch].mean():,.1f} kWh", color = "green")
-                k3.badge(f"Spitzenwert: {self.vdf[self.verbrauch].max():,.0f} kWh", color = "red")
+                k2.badge(f"Ø pro Zeitpunkt: {self.vdf[self.verbrauch].mean():,.1f} kWh", color = "blue")
+                k3.badge(f"Spitzenwert: {self.vdf[self.verbrauch].max():,.0f} kWh", color = "blue")
             except Exception as e:
                 st.error(f"Fehler beim Laden der {self.vTyp}daten: {e}")

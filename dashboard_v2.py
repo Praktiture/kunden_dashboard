@@ -17,6 +17,9 @@ KATEGORIEN = {
         "Standorte", "Mitarbeiterzahl", "Umsatz(€)", "Umsatz/Jahr",
         "Branche", "Linkedin(url)", "Zeithorizont"
     ],
+    "Ansprechpartner": [
+        "Ansprechpartner"
+    ],
     "Energie": [
         "Stromverbrauch(GWh)", "Stromverbrauch (Annahme)",
         "Gasverbrauch(GWh)", "Gasverbrauch (Annahme)",
@@ -33,10 +36,8 @@ KATEGORIEN = {
         "Geplante Maßnahmen", "Geplante Maßnahmen (Annahme)",
         "Projektrelevanz", "Transformationsphase"
     ],
-    "Offene Fragen": [
-        "Offene Fragen"],
-    "Fazit": [
-        "Kurzfazit"],
+    "Abschließend": [
+        "Offene Fragen", "Kurzfazit"],
 }
 
 # ─────────────────────────────────────────────
@@ -101,8 +102,8 @@ else:
         baue_panel2(kunde, "Energie",        KATEGORIEN["Energie"],        stil="steckbrief"),
         baue_panel2(kunde, "Nachhaltigkeit", KATEGORIEN["Nachhaltigkeit"], stil="steckbrief"),
         baue_panel2(kunde, "Strategie",      KATEGORIEN["Strategie"],      stil="steckbrief"),
-        baue_panel2(kunde, "Offene Fragen",  KATEGORIEN["Offene Fragen"],  stil="steckbrief"),
-        baue_panel2(kunde, "Fazit",          KATEGORIEN["Fazit"],          stil="steckbrief"),  
+        baue_panel2(kunde, "Abschließend",   KATEGORIEN["Abschließend"],   stil="text"),
+        baue_panel2(kunde, "Ansprechpartner", KATEGORIEN["Ansprechpartner"], stil="text"),
     ]
 
     gefuellte_panels = [p for p in alle_panels if p is not None]

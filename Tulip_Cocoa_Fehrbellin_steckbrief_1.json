@@ -1,0 +1,103 @@
+{
+  "Unternehmen": "Tulip Cocoa FB GmbH & Co. KG",
+  "Muttergesellschaft": "Ecom Agroindustrial Corp. Ltd., Pully, Schweiz",
+  "Rechtsform": "GmbH & Co. KG",
+  "Handelsregister": "HRA 3053 NP, Amtsgericht Neuruppin",
+  "Hauptsitz": "Kakaostraße 1, 16833 Fehrbellin, Brandenburg",
+  "Standorte": ["Fehrbellin (Produktion, einziger Standort)"],
+  "Mitarbeiterzahl": null,
+  "Umsatz(€)": null,
+  "Umsatz/Jahr": "Bilanzsumme 2023: 37,9 Mio. €",
+  "Branche": "Kakaoverarbeitung / Lebensmittelproduktion",
+  "Linkedin(url)": null,
+  "Zeithorizont": null,
+  "Stromverbrauch(GWh)": null,
+  "Stromverbrauch (Annahme)": "[ANNAHME] 10–25 GWh/Jahr – Schätzung auf Basis energieintensiver Prozesse (Mahlen, Kühlung, Förderung) bei mittelgroßer Kakaofabrik im 24/7-Betrieb",
+  "Gasverbrauch(GWh)": null,
+  "Gasverbrauch (Annahme)": "[ANNAHME] 20–40 GWh/Jahr – Rösten und Dampfbehandlung erfordern hohen thermischen Energieeinsatz; Gas wahrscheinlich Hauptenergieträger für Wärme",
+  "Wärmeversorgung": "[ANNAHME] Prozessdampf für Rösten, Debakterisierung und Pressung; wahrscheinlich gasbasierte Dampferzeugung; Kakaoschalen als biogener Reststoff mit Potenzial zur Dampferzeugung (Referenz: ofi Mannheim)",
+  "Grünstrom": null,
+  "Eigenerzeugung": [],
+  "Klimaziele": "ECOM-Konzernziel: Net Zero bis 2050 (Scope 1, 2, 3)",
+  "Klimaziele (Annahme)": "[ANNAHME] Standortspezifische Ziele nicht öffentlich; als ECOM-Tochter wahrscheinlich in Konzernziele eingebunden",
+  "ESG Bericht": "ECOM Cocoa Sustainability Report (GRI-Standards), jährlich seit 2022; Smarter Cocoa Charter als Rahmenwerk",
+  "CO2 Bilanzierung": null,
+  "CO2 Bilanzierung (Annahme)": "[ANNAHME] Scope-1/2/3-Bilanzierung auf Konzernebene vorhanden; standortspezifische Daten nicht öffentlich",
+  "Zertifizierungen": ["Ecocert-Zertifizierung nach EU-Öko-VO (EU) 2018/848"],
+  "Ausgangssituation": [
+    "Einziger Produktionsstandort: Kakaofabrik Fehrbellin (ehem. Euromar Commodities)",
+    "Prozesse: Reinigen, Rösten, Mahlen von Kakaobohnen → Kakaomasse, Kakaobutter, Kakaopulver",
+    "24/7-Schichtbetrieb, ganzjährig",
+    "Rohware aus Westafrika, Indonesien, Südamerika"
+  ],
+  "Geplante Maßnahmen": [],
+  "Geplante Maßnahmen (Annahme)": [
+    "[ANNAHME] Nutzung von Kakaoschalen zur Dampferzeugung als biogene Alternative zu Gas (Branchentrend, Referenz ofi/MVV Mannheim)",
+    "[ANNAHME] PV auf Produktionsdach grundsätzlich möglich, aber nicht belegt",
+    "[ANNAHME] Dekarbonisierung der Wärmeversorgung als Teil der ECOM-Net-Zero-Strategie relevant"
+  ],
+  "Projektrelevanz": [
+    "Hochenergieprozess (Rösten, Dampf) = primärer Ansatzpunkt für Wärme-Dekarbonisierung",
+    "Biogener Reststoff Kakaoschalen = Potenzial für Biomasse-Dampfanlage",
+    "ECOM-Klimaziele erzeugen Druck auf Standortebene",
+    "CSRD-Alignment des Konzerns → möglicherweise standortspezifische Berichtspflichten"
+  ],
+  "Offene Fragen": [
+    "Aktuelle Wärmeversorgung: Gas, Öl, Fernwärme?",
+    "Besteht ein BHKW oder eine Eigenerzeugungsanlage?",
+    "Wird Grünstrom bezogen oder bestehen HKN-Ziele?",
+    "Sind Kakaoschalen bereits energetisch genutzt oder entsorgt?",
+    "Gibt es interne Energieeffizienz-/Klimaziele auf Standortebene?",
+    "Wer ist intern für Energie und Technik zuständig?"
+  ],
+  "Transformationsphase": "früh",
+  "Kurzfazit": [
+    "Energieintensiver Industriestandort mit hohem Dampfbedarf – klassischer Ansatzpunkt für Wärme-Contracting oder Biomasse-Dampflösung",
+    "Konzernmutter ECOM hat Net-Zero-Ziel 2050, aber Standort-Roadmap nicht öffentlich",
+    "Einstieg über Bioenergiekonzept (Kakaoschalen) oder Prozesswärme-Audit sinnvoll"
+  ],
+  "Ansprechpartner": [
+    {
+      "Name": "Karel August de Gruiter",
+      "Funktion": "Geschäftsführer (Tulip Cocoa FB Verwaltungs GmbH / Key Principal)",
+      "LinkedIn": null,
+      "Email": null,
+      "Telefon": "+49 33932 60190",
+      "Quelle": "D&B, openregister.de, Handelsregister",
+      "Relevanz": "Formaler Geschäftsführer; als COO/Technik-GF geeigneter Erstanlaufpunkt wenn kein dedizierter Energiemanager gefunden wird"
+    },
+    {
+      "Name": "Remco Dittmar",
+      "Funktion": "Geschäftsführer (Tulip Cocoa FB Verwaltungs GmbH, eingetragen 2022)",
+      "LinkedIn": null,
+      "Email": null,
+      "Telefon": null,
+      "Quelle": "Creditreform Registerbekanntmachung 07.11.2022",
+      "Relevanz": "Zweiter Geschäftsführer; Zuständigkeit unklar – bei de Gruiter anfragen oder LinkedIn prüfen"
+    },
+    {
+      "Name": "Uwe Daniel",
+      "Funktion": "Mitarbeiter Tulip Cocoa FB GmbH & Co. KG (Funktion öffentlich nicht einsehbar)",
+      "LinkedIn": "https://de.linkedin.com/in/uwe-daniel-48369396",
+      "Email": null,
+      "Telefon": null,
+      "Quelle": "LinkedIn",
+      "Relevanz": "LinkedIn-Profil vorhanden; genaue Rolle und ob Technik/Energie unklar – Profil direkt prüfen"
+    }
+  ],
+  "Ansprechpartner Top-Vorschlag": "[ANNAHME] Karel August de Gruiter, Geschäftsführer – als ranghöchste öffentlich belegte Person mit Alleinvertretungsbefugnis wahrscheinlichster Erstanlaufpunkt; Weiterleitung an Technikabteilung von dort möglich. Verfügbarkeit und aktuelle Zuständigkeit nicht verifizierbar.",
+  "Quellen": [
+    {"Quelle": "wer-zu-wem.de", "URL": "https://www.wer-zu-wem.de/firma/tulip-cocoa.html", "Datum": "2025"},
+    {"Quelle": "Creditreform Firmeneintrag", "URL": "https://firmeneintrag.creditreform.de/16833/2012708220/TULIP_COCOA_FB_GMBH_CO_KG", "Datum": "2025"},
+    {"Quelle": "Northdata", "URL": "https://www.northdata.de/Tulip%20Cocoa%20FB%20GmbH%20&%20Co%C2%B7%20KG,%20Fehrbellin/Amtsgericht%20Neuruppin%20HRA%203053", "Datum": "2025"},
+    {"Quelle": "Implisense (Bilanzsumme)", "URL": "https://implisense.com/de/companies/tulip-cocoa-fb-gmbh-co-kg-fehrbellin-DEFM61RXDK89", "Datum": "2024"},
+    {"Quelle": "Schönau Referenz", "URL": "https://schoenau.com/referenzkunden/referenzprojekte-palettenfoerdertechnik/11248-tulip/", "Datum": "Aug 2025"},
+    {"Quelle": "Ecocert Zertifikat", "URL": "https://certificat.ecocert.com/company/F0B49CAC-149D-4628-82F2-FBD55D81B498", "Datum": "2025"},
+    {"Quelle": "D&B Business Directory", "URL": "https://www.dnb.com/business-directory/company-profiles.tulip_cocoa_fb_gmbh__co_kg.d3c3838aa47927bbe99e30a7d3119b27.html", "Datum": "2025"},
+    {"Quelle": "World Benchmarking Alliance – ECOM", "URL": "https://archive.worldbenchmarkingalliance.org/publication/food-agriculture/companies/ecom-agroindustrial-3/", "Datum": "Dez 2023"},
+    {"Quelle": "BusinessWire – ECOM Smarter Cocoa Charter", "URL": "https://www.businesswire.com/news/home/20220609005079/en/ECOM-Launches-Smarter-Cocoa-Charter-to-Empower-Farmers-and-Drive-Climate-Resilience", "Datum": "Juni 2022"},
+    {"Quelle": "MVV Enamic / ofi Kakaoschalen-Dampf (Branchenreferenz)", "URL": "https://www.muehle-mischfutter.de/artikel/energie-durch-biomasse-aus-kakaoschalen", "Datum": "Okt 2022"},
+    {"Quelle": "Openregister – Verwaltungs GmbH", "URL": "https://openregister.de/company/DE-HRB-G1309-11934", "Datum": "2025"},
+    {"Quelle": "Creditreform – Verwaltungs GmbH", "URL": "https://firmeneintrag.creditreform.de/16833/3270202190/TULIP_COCOA_FB_VERWALTUNGS_GMBH", "Datum": "2025"}
+  ]
+}

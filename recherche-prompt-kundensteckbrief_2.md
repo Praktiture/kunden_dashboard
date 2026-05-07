@@ -14,16 +14,18 @@ Nutze: Unternehmenswebsite, LinkedIn-Unternehmensseite, Nachhaltigkeits-/Geschä
 
 Lass Abschnitte weg, zu denen weder Fakten noch sinnvolle Annahmen möglich sind.
 
-Erstelle am Ende zwei Ausgaben:
-1. Einen lesbaren **Markdown-Steckbrief**
-2. Direkt darunter denselben Inhalt als **ausgefülltes JSON** – eingebettet in einen ```json-Codeblock
+Erstelle am Ende drei Ausgaben:
+1. Einen lesbaren **Markdown-Steckbrief** – direkt im Chat ausgeben
+2. Denselben Inhalt als **ausgefülltes JSON** – nicht im Chat ausgeben, sondern als downloadbare Datei speichern mit dem Dateinamen `[unternehmensname]_steckbrief.json`
+3. Eine **Ansprechpartner-Recherche** – direkt im Chat ausgeben (Markdown), Top-Vorschlag zusätzlich in die JSON-Datei
+
 Halte alle Einträge kurz und prägnant: maximal 1–2 Sätze pro Punkt, keine Nebensätze, keine Wiederholungen. Schlüsselinformation zuerst.
 
 ---
 
 ## Eingabe
 
-**Unternehmen:** `Tulip Cocoa`
+**Unternehmen:** `Tulip Cocoa Fehrbellin`
 **Branche (optional):** `Lebensmittelproduktion`
 **Bekannte Standorte (optional):** `[z. B. Hamburg, München]`
 **Gesprächsnotizen (optional):** `[z. B. Telefonat TT.MM.JJJJ – BHKW läuft aus, Interesse an PV]`
@@ -150,6 +152,65 @@ Befülle exakt dieses JSON-Schema mit den recherchierten Daten. Bei Annahmen den
   "Offene Fragen": [],
   "Transformationsphase": null,
   "Kurzfazit": [],
+  "Ansprechpartner": [],
+  "Ansprechpartner Top-Vorschlag": null,
   "Quellen": []
 }
 ```
+
+---
+
+## Ausgabe 3: Ansprechpartner-Recherche
+
+Recherchiere den optimalen Ansprechpartner für ein Erstgespräch zu einem Projekt im Bereich
+**nachhaltige Wärme- und Dampfversorgung / Wärmespeicher**.
+
+### Zielperson (Priorität absteigend)
+1. Leiter/in Energiemanagement oder Energiebeauftragter
+2. Leiter/in Nachhaltigkeit / ESG / Umwelt
+3. Leiter/in Technik / Produktion / Facility Management / Werkleiter (aktuell und älter mit Datum)
+4. COO oder Geschäftsführer Technik (nur wenn nichts anderes gefunden)
+
+
+### Suchquellen (alle durchsuchen)
+- LinkedIn: Unternehmensseite → Mitarbeiterliste → Filter nach Rolle
+- Unternehmenswebsite: Team-/Kontaktseiten, Impressum, Pressebereich
+- Pressemitteilungen und Fachmedien: Namentliche Erwähnungen in Energieprojekten
+- Nachhaltigkeitsberichte: Verantwortliche Personen im Impressum oder Kontaktbereich
+- Handelsregister / Northdata: Prokuristen und Geschäftsführer
+- Zeitungsberichte (hauptsächlich Lokalzeitungen)
+
+### Ausgabe Markdown
+Gib pro gefundener Person aus (maximal 3, nach Relevanz sortiert):
+- **Name** und **Titel / Funktion**
+- **Kontakt** (LinkedIn-URL, E-Mail wenn öffentlich, Telefon wenn öffentlich)
+- **Quelle** der Information
+- **Relevanz** (1–2 Sätze: warum diese Person?)
+
+Wenn keine direkte Zielperson gefunden wird: Nenne den besten verfügbaren Einstiegskontakt
+und erkläre kurz, wie man von dort zur richtigen Person gelangt.
+
+### Ausgabe JSON
+Füge die gefundenen Personen in das Feld `"Ansprechpartner"` ein und den Top-Vorschlag
+in `"Ansprechpartner Top-Vorschlag"`. Den Top-Vorschlag als `[ANNAHME]` kennzeichnen,
+da Verfügbarkeit und aktuelle Rolle nicht verifizierbar.
+
+```json
+"Ansprechpartner": [
+  {
+    "Name": null,
+    "Funktion": null,
+    "LinkedIn": null,
+    "Email": null,
+    "Telefon": null,
+    "Quelle": null,
+    "Relevanz": null
+  }
+],
+"Ansprechpartner Top-Vorschlag": "[ANNAHME] Name, Funktion – kurze Begründung"
+```
+
+### Grenzen
+- Nur öffentlich zugängliche Informationen verwenden
+- Keine Vermutungen zu Kontaktdaten — lieber weniger, aber verlässlich
+- Maximal 3 Personen ausgeben, nach Relevanz sortiert
