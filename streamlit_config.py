@@ -43,6 +43,8 @@ def baue_panel2(kunde, titel, felder, stil="steckbrief"):
                     for obj in wert)
             else:
                 wert = "<br>".join(str(x) for x in wert)
+        
+        vorhandene[feld] = wert
     
     if not vorhandene:
         return None
