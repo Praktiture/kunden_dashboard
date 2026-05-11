@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI';
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+code {
+    background: #f6f8fa;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+pre {
+    background: #f6f8fa;
+    padding: 12px;
+    border-radius: 6px;
+    overflow-x: auto;
+}
+</style>
+</head>
+<body>
+<h1>Recherche-Prompt: Kunden-Projektsteckbrief</h1>
+<hr />
+<h2>Anweisung an Claude</h2>
+<p>Du bist ein erfahrener Energieberater und Recherche-Assistent. Recherchiere öffentlich verfügbare Informationen zum unten genannten Unternehmen.</p>
+<p>Nutze: Unternehmenswebsite, LinkedIn-Unternehmensseite, Nachhaltigkeits-/Geschäftsberichte, Pressemitteilungen, Fachmedien, Handelsregister, Finanzberichte/Jahresabschlüsse, Branchendatenbanken, Fachverbände, Energiedatenbanken, Organigramme in Geschäftberichten.</p>
+<h3>Grenzen (zur Ansprechpartnerrecherche)</h3>
+<ul>
+<li>Nur öffentlich zugängliche Informationen verwenden</li>
+<li>Keine Vermutungen zu Kontaktdaten — lieber weniger, aber verlässlich</li>
+</ul>
+<p><strong>Zwei Arten von Aussagen – immer klar unterscheiden:</strong>
+- <strong>[FAKT]</strong> – Belegt durch öffentliche Quelle (mit Quellenangabe)
+- <strong>[ANNAHME]</strong> – Plausible Einschätzung basierend auf Branchenregulierung, Unternehmensstruktur oder typischen Mustern vergleichbarer Unternehmen – nie als Fakt darstellen</p>
+<p>Lass Abschnitte weg, zu denen weder Fakten noch sinnvolle Annahmen möglich sind.</p>
+<p>Erstelle am Ende als Ausgabe einen lesbaren <strong>Markdown-Steckbrief</strong>.
+Halte alle Einträge kurz und prägnant: maximal 1–2 Sätze pro Punkt, keine Nebensätze, keine Wiederholungen. Schlüsselinformation zuerst.</p>
+<hr />
+<h2>Eingabe</h2>
+<p><strong>Unternehmen:</strong> {unternehmen}
+<strong>Branche (optional):</strong> {branche}
+<strong>Bekannte Standorte (optional):</strong> {standorte}
+<strong>Gesprächsnotizen (optional):</strong> {notizen}</p>
+<hr />
+<h2>Ausgabe: PDF-File</h2>
+<h1>Projektsteckbrief: [UNTERNEHMENSNAME]</h1>
+<h2>1. Stammdaten</h2>
+<p>| Feld | Information |
+|------|-------------|
+| <strong>Unternehmen</strong> | |
+| <strong>Muttergesellschaft / Konzern</strong> | |
+| <strong>Rechtsform</strong> | |
+| <strong>Hauptsitz</strong> | |
+| <strong>Produktionsstandorte</strong> | |
+| <strong>Mitarbeiterzahl</strong> | |
+| <strong>Umsatz</strong> | |
+| <strong>Branche / Tätigkeit</strong> | |
+| <strong>LinkedIn</strong> | [URL zur LinkedIn-Unternehmensseite falls gefunden] |
+| <strong>Zeithorizont Projekt</strong> | |</p>
+<h2>2. Ausgangssituation</h2>
+<p>Nur befüllen wenn Informationen vorhanden – sonst Abschnitt weglassen.</p>
+<ul>
+<li>[Standorte und ihre Funktion]</li>
+<li>[Aktuelle Herausforderungen]</li>
+<li>[Bereits umgesetzte Maßnahmen]</li>
+<li>[Laufende Investitionen / Bauprojekte]</li>
+<li>[Hinweise aus Gesprächen]</li>
+</ul>
+<h2>3. Energie- und Klimastrategie</h2>
+<p>Nur befüllen wenn Informationen vorhanden – sonst Abschnitt weglassen.</p>
+<ul>
+<li>[Klimaziele und Zeithorizont] → <strong>[FAKT]</strong> oder <strong>[ANNAHME]</strong></li>
+<li>[ESG-Berichterstattung / Nachhaltigkeitsbericht vorhanden?] → <strong>[FAKT]</strong> oder <strong>[ANNAHME]</strong></li>
+<li>[CO₂-Bilanzierung: CCF / PCF geplant oder vorhanden?] → <strong>[FAKT]</strong> oder <strong>[ANNAHME]</strong></li>
+<li>[Zertifizierungen: ISO 50001, EMAS o. ä.] → <strong>[FAKT]</strong> oder <strong>[ANNAHME]</strong></li>
+</ul>
+<blockquote>
+<p>💡 <strong>Branchenguestimate:</strong> Schätze auf Basis typischer Regulierungsanforderungen (z. B. EU-Taxonomie, CSRD, Lieferkettensorgfaltspflicht) und vergleichbarer Unternehmen dieser Branche, welche CO₂-Ziele und Berichtspflichten wahrscheinlich relevant sind. Klar als <strong>[ANNAHME]</strong> kennzeichnen.</p>
+</blockquote>
+<h2>4. Energieversorgung</h2>
+<p>Nur befüllen wenn Informationen vorhanden oder Annahmen sinnvoll – sonst Abschnitt weglassen.</p>
+<ul>
+<li><strong>Stromverbrauch:</strong> [GWh/Jahr] → <strong>[FAKT]</strong> oder <strong>[ANNAHME: Schätzung auf Basis Branche / Unternehmensgröße]</strong></li>
+<li><strong>Gasverbrauch:</strong> [GWh/Jahr] → <strong>[FAKT]</strong> oder <strong>[ANNAHME]</strong></li>
+<li><strong>Eigenerzeugung:</strong> [BHKW, PV, Windkraft etc.] → <strong>[FAKT]</strong> oder <strong>[ANNAHME]</strong></li>
+<li><strong>Wärmeversorgung:</strong> [Quellen, Dampfbedarf] → <strong>[FAKT]</strong> oder <strong>[ANNAHME]</strong></li>
+<li><strong>Grünstrom / HKN:</strong> [bekannt?] → <strong>[FAKT]</strong> oder <strong>[ANNAHME]</strong></li>
+</ul>
+<blockquote>
+<p>💡 <strong>Branchenguestimate:</strong> Schätze typische Energieverbräuche und -strukturen für ein Unternehmen dieser Branche und Größe. Klar als <strong>[ANNAHME]</strong> kennzeichnen.</p>
+</blockquote>
+<h2>5. Geplante Maßnahmen &amp; EE-Ausbau</h2>
+<p>Nur befüllen wenn Informationen vorhanden oder Annahmen sinnvoll – sonst Abschnitt weglassen.</p>
+<ul>
+<li>[PV, Wind, Speicher geplant?] → <strong>[FAKT]</strong> oder <strong>[ANNAHME]</strong></li>
+<li>[Elektrifizierung, Wärmepumpen, E-Mobilität?] → <strong>[FAKT]</strong> oder <strong>[ANNAHME]</strong></li>
+<li>[PPAs oder Grünstrombezugsziele?] → <strong>[FAKT]</strong> oder <strong>[ANNAHME]</strong></li>
+</ul>
+<blockquote>
+<p>💡 <strong>Branchenguestimate:</strong> Schätze auf Basis branchentypischer Dekarbonisierungspfade und aktueller Förderlandschaft, welche Maßnahmen für dieses Unternehmen wahrscheinlich relevant oder im Gespräch sind. Klar als <strong>[ANNAHME]</strong> kennzeichnen.</p>
+</blockquote>
+<h2>6. Projektrelevanz &amp; offene Fragen</h2>
+<ul>
+<li>[Konkrete Ansatzpunkte für Zusammenarbeit]</li>
+<li>[Fördermittelrelevanz]</li>
+<li>[Offene Fragen für nächstes Gespräch]</li>
+</ul>
+<h2>7. Kurzfazit</h2>
+<ul>
+<li>[Transformationsphase: früh / fortgeschritten / konservativ]</li>
+<li>[Wichtigste Projektansätze]</li>
+<li>[Dringlichkeit]</li>
+</ul>
+<hr />
+<h2>8: Ansprechpartner-Recherche</h2>
+<p>Recherchiere den optimalen Ansprechpartner für ein Erstgespräch zu einem Projekt im Bereich
+<strong>nachhaltige Wärme- und Dampfversorgung / Wärmespeicher</strong>.</p>
+<h3>Zielperson (Priorität absteigend)</h3>
+<ol>
+<li>Leiter/in Energiemanagement oder Energiebeauftragter</li>
+<li>Leiter/in Nachhaltigkeit / ESG / Umwelt</li>
+<li>Leiter/in Technik / Produktion / Facility Management / Werkleiter (aktuell und älter mit Datum)</li>
+<li>COO oder Geschäftsführer Technik (nur wenn nichts anderes gefunden)</li>
+</ol>
+<h3>Suchquellen (alle durchsuchen)</h3>
+<ul>
+<li>LinkedIn: Unternehmensseite → Mitarbeiterliste → Filter nach Rolle</li>
+<li>Unternehmenswebsite: Team-/Kontaktseiten, Impressum, Pressebereich</li>
+<li><strong>Zertifikate &amp; Audits:</strong> ISO 9001, ISO 14001, ISO 50001, EMAS, OHSAS-Zertifikate auf Website/Pressemitteilungen → QM-, UM-, EM-Verantwortliche sind oft namentlich genannt</li>
+<li>Pressemitteilungen und Fachmedien: Namentliche Erwähnungen in Energieprojekten</li>
+<li>Nachhaltigkeitsberichte: Verantwortliche Personen im Impressum oder Kontaktbereich</li>
+<li>Handelsregister / Northdata: Prokuristen und Geschäftsführer</li>
+<li>Zeitungsberichte (hauptsächlich Lokalzeitungen)</li>
+<li>XING: Unternehmensseite, verteilte Rollen der Mitarbeiter</li>
+<li>Auditvorbereitung/-reports: Verantwortliche für Berichte</li>
+<li>Konferenzen und Messen: Referentenlisten </li>
+</ul>
+<h3>Ausgabe</h3>
+<p>Gib pro gefundener Person aus (maximal 3, nach Relevanz sortiert):
+- <strong>Name</strong>, <strong>Titel / Funktion</strong>, <strong>Funddatum</strong> (von wann gefundene Information)
+- <strong>Kontakt</strong> (LinkedIn-URL, E-Mail wenn öffentlich, Telefon wenn öffentlich)
+- <strong>Quelle</strong> der Information
+- <strong>Relevanz</strong> (1–2 Sätze: warum diese Person?)</p>
+<p>Wenn keine direkte Zielperson gefunden wird: Nenne den besten verfügbaren Einstiegskontakt
+und erkläre kurz, wie man von dort zur richtigen Person gelangt.</p>
+<h2>Quellen</h2>
+<p>| Quelle | URL | Datum |
+|--------|-----|-------|
+| | | |</p>
+</body>
+</html>

@@ -6,7 +6,11 @@
 
 Du bist ein erfahrener Energieberater und Recherche-Assistent. Recherchiere öffentlich verfügbare Informationen zum unten genannten Unternehmen.
 
-Nutze: Unternehmenswebsite, LinkedIn-Unternehmensseite, Nachhaltigkeits-/Geschäftsberichte, Pressemitteilungen, Fachmedien, Handelsregister.
+Nutze: Unternehmenswebsite, LinkedIn-Unternehmensseite, Nachhaltigkeits-/Geschäftsberichte, Pressemitteilungen, Fachmedien, Handelsregister, Finanzberichte/Jahresabschlüsse, Branchendatenbanken, Fachverbände, Energiedatenbanken, Organigramme in Geschäftberichten.
+
+### Grenzen (zur Ansprechpartnerrecherche)
+- Nur öffentlich zugängliche Informationen verwenden
+- Keine Vermutungen zu Kontaktdaten — lieber weniger, aber verlässlich
 
 **Zwei Arten von Aussagen – immer klar unterscheiden:**
 - **[FAKT]** – Belegt durch öffentliche Quelle (mit Quellenangabe)
@@ -14,25 +18,21 @@ Nutze: Unternehmenswebsite, LinkedIn-Unternehmensseite, Nachhaltigkeits-/Geschä
 
 Lass Abschnitte weg, zu denen weder Fakten noch sinnvolle Annahmen möglich sind.
 
-Erstelle am Ende drei Ausgaben:
-1. Einen lesbaren **Markdown-Steckbrief** – direkt im Chat ausgeben
-2. Denselben Inhalt als **ausgefülltes JSON** – nicht im Chat ausgeben, sondern als downloadbare Datei speichern mit dem Dateinamen `[unternehmensname]_steckbrief.json`
-3. Eine **Ansprechpartner-Recherche** – direkt im Chat ausgeben (Markdown), Top-Vorschlag zusätzlich in die JSON-Datei
-
+Erstelle am Ende als Ausgabe einen lesbaren **Markdown-Steckbrief**.
 Halte alle Einträge kurz und prägnant: maximal 1–2 Sätze pro Punkt, keine Nebensätze, keine Wiederholungen. Schlüsselinformation zuerst.
 
 ---
 
 ## Eingabe
 
-**Unternehmen:** `Tulip Cocoa Fehrbellin`
-**Branche (optional):** `Lebensmittelproduktion`
-**Bekannte Standorte (optional):** `[z. B. Hamburg, München]`
-**Gesprächsnotizen (optional):** `[z. B. Telefonat TT.MM.JJJJ – BHKW läuft aus, Interesse an PV]`
+**Unternehmen:** {unternehmen}
+**Branche (optional):** {branche}
+**Bekannte Standorte (optional):** {standorte}
+**Gesprächsnotizen (optional):** {notizen}
 
 ---
 
-## Ausgabe 1: Markdown-Steckbrief
+## Ausgabe: PDF-File
 
 # Projektsteckbrief: [UNTERNEHMENSNAME]
 
@@ -106,61 +106,9 @@ Nur befüllen wenn Informationen vorhanden oder Annahmen sinnvoll – sonst Absc
 - [Wichtigste Projektansätze]
 - [Dringlichkeit]
 
-## Quellen
-
-| Quelle | URL | Datum |
-|--------|-----|-------|
-| | | |
-
 ---
 
-## Ausgabe 2: JSON
-
-Befülle exakt dieses JSON-Schema mit den recherchierten Daten. Bei Annahmen den Wert als String mit Präfix `"[ANNAHME] ..."` angeben. Felder ohne verfügbare Information oder sinnvolle Annahme mit `null` belassen — negative Befunde ("nicht bekannt", "nicht öffentlich", "kein X gefunden") dabei nicht eintragen. Der Markdown-Steckbrief darf ausführlicher sein.
-
-```json
-{
-  "Unternehmen": null,
-  "Muttergesellschaft": null,
-  "Rechtsform": null,
-  "Handelsregister": null,
-  "Hauptsitz": null,
-  "Standorte": [],
-  "Mitarbeiterzahl": null,
-  "Umsatz(€)": null,
-  "Umsatz/Jahr": null,
-  "Branche": null,
-  "Linkedin(url)": null,
-  "Zeithorizont": null,
-  "Stromverbrauch(GWh)": null,
-  "Stromverbrauch (Annahme)": null,
-  "Gasverbrauch(GWh)": null,
-  "Gasverbrauch (Annahme)": null,
-  "Wärmeversorgung": null,
-  "Grünstrom": null,
-  "Eigenerzeugung": [],
-  "Klimaziele": null,
-  "Klimaziele (Annahme)": null,
-  "ESG Bericht": null,
-  "CO2 Bilanzierung": null,
-  "CO2 Bilanzierung (Annahme)": null,
-  "Zertifizierungen": [],
-  "Ausgangssituation": [],
-  "Geplante Maßnahmen": [],
-  "Geplante Maßnahmen (Annahme)": [],
-  "Projektrelevanz": [],
-  "Offene Fragen": [],
-  "Transformationsphase": null,
-  "Kurzfazit": [],
-  "Ansprechpartner": [],
-  "Ansprechpartner Top-Vorschlag": null,
-  "Quellen": []
-}
-```
-
----
-
-## Ausgabe 3: Ansprechpartner-Recherche
+## 8: Ansprechpartner-Recherche
 
 Recherchiere den optimalen Ansprechpartner für ein Erstgespräch zu einem Projekt im Bereich
 **nachhaltige Wärme- und Dampfversorgung / Wärmespeicher**.
@@ -171,7 +119,6 @@ Recherchiere den optimalen Ansprechpartner für ein Erstgespräch zu einem Proje
 3. Leiter/in Technik / Produktion / Facility Management / Werkleiter (aktuell und älter mit Datum)
 4. COO oder Geschäftsführer Technik (nur wenn nichts anderes gefunden)
 
-
 ### Suchquellen (alle durchsuchen)
 - LinkedIn: Unternehmensseite → Mitarbeiterliste → Filter nach Rolle
 - Unternehmenswebsite: Team-/Kontaktseiten, Impressum, Pressebereich
@@ -180,11 +127,14 @@ Recherchiere den optimalen Ansprechpartner für ein Erstgespräch zu einem Proje
 - Nachhaltigkeitsberichte: Verantwortliche Personen im Impressum oder Kontaktbereich
 - Handelsregister / Northdata: Prokuristen und Geschäftsführer
 - Zeitungsberichte (hauptsächlich Lokalzeitungen)
+- XING: Unternehmensseite, verteilte Rollen der Mitarbeiter
+- Auditvorbereitung/-reports: Verantwortliche für Berichte
+- Konferenzen und Messen: Referentenlisten 
 
 
-### Ausgabe Markdown
+### Ausgabe
 Gib pro gefundener Person aus (maximal 3, nach Relevanz sortiert):
-- **Name** und **Titel / Funktion**
+- **Name**, **Titel / Funktion**, **Funddatum** (von wann gefundene Information)
 - **Kontakt** (LinkedIn-URL, E-Mail wenn öffentlich, Telefon wenn öffentlich)
 - **Quelle** der Information
 - **Relevanz** (1–2 Sätze: warum diese Person?)
@@ -192,27 +142,9 @@ Gib pro gefundener Person aus (maximal 3, nach Relevanz sortiert):
 Wenn keine direkte Zielperson gefunden wird: Nenne den besten verfügbaren Einstiegskontakt
 und erkläre kurz, wie man von dort zur richtigen Person gelangt.
 
-### Ausgabe JSON
-Füge die gefundenen Personen in das Feld `"Ansprechpartner"` ein und den Top-Vorschlag
-in `"Ansprechpartner Top-Vorschlag"`. Den Top-Vorschlag als `[ANNAHME]` kennzeichnen,
-da Verfügbarkeit und aktuelle Rolle nicht verifizierbar.
 
-```json
-"Ansprechpartner": [
-  {
-    "Name": null,
-    "Funktion": null,
-    "LinkedIn": null,
-    "Email": null,
-    "Telefon": null,
-    "Quelle": null,
-    "Relevanz": null
-  }
-],
-"Ansprechpartner Top-Vorschlag": "[ANNAHME] Name, Funktion – kurze Begründung"
-```
+## Quellen
 
-### Grenzen
-- Nur öffentlich zugängliche Informationen verwenden
-- Keine Vermutungen zu Kontaktdaten — lieber weniger, aber verlässlich
-- Maximal 3 Personen ausgeben, nach Relevanz sortiert
+| Quelle | URL | Datum |
+|--------|-----|-------|
+| | | |
