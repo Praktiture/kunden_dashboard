@@ -99,11 +99,11 @@ else:
     # Panels aufbauen
     alle_panels = [
         baue_panel2(kunde, "Allgemein",      KATEGORIEN["Allgemein"],      stil="steckbrief"),
+        baue_panel2(kunde, "Ansprechpartner", KATEGORIEN["Ansprechpartner"], stil="text"),
         baue_panel2(kunde, "Energie",        KATEGORIEN["Energie"],        stil="steckbrief"),
         baue_panel2(kunde, "Nachhaltigkeit", KATEGORIEN["Nachhaltigkeit"], stil="steckbrief"),
         baue_panel2(kunde, "Strategie",      KATEGORIEN["Strategie"],      stil="steckbrief"),
         baue_panel2(kunde, "Abschließend",   KATEGORIEN["Abschließend"],   stil="text"),
-        baue_panel2(kunde, "Ansprechpartner", KATEGORIEN["Ansprechpartner"], stil="text"),
     ]
 
     gefuellte_panels = [p for p in alle_panels if p is not None]
